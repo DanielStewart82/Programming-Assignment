@@ -8,6 +8,8 @@ int main()
     char encryptedString[200];
     
     printf("Enter text to be encrypted:\n");
-    scanf("%s", encryptedString);
-   printf("This is the first line of code for my programming assignment");
+    scanf("%s", encryptedString);  //user will enter text here and it should be stored in the encryptedString
+   printf("%s", encryptedString);
+   
+   return 0;
 }
