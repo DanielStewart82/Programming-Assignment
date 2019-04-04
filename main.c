@@ -19,7 +19,7 @@ int main()
 }
 void myFunction(char *myString, int n){
     int i;
-    int key = 0;
+    int key = 1;
     for( i=0; i <= n ; i++ ){
        printf("%c", myString[i]+key);
         
