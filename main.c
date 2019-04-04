@@ -4,24 +4,29 @@
 void myFunction(char *myString, int n);
 
 int main()
-{
+    {
     
-    char myString[]= "THISISATESTCODE";
+    char myString[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     
     int n;
     
-    n = (sizeof(myString))/(sizeof(myString[0]));
+    n = (sizeof(myString))-1;
      
-    myFunction(myString, n) ;
-    
-    return 0;
+    myFunction(myString, n);
    
-}
-void myFunction(char *myString, int n){
+    return 0;
+    }
+
+void myFunction(char *myString, int n)
+    {
     int i;
     int key = 1;
-    for( i=0; i <= n ; i++ ){
-       printf("%c", myString[i]+key);
-        
+    for( i=0; i <= n ; i++ )
+    {    if(myString[i]>=89){
+        myString[i]= myString[i]-20;
     }
+       printf("%c", myString[i]+key );
+      
+    }
+    printf("\n" );
 }
