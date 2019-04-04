@@ -1,31 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void myFunction(char *myString, int n);
+void enigmaFunction(char *regularText, int n);
 
 int main()
     {
     
-    char myString[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char regularText[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     
     int n;
     
-    n = (sizeof(myString))-1;
+    n = (sizeof(regularText))-1;
      
-    myFunction(myString, n);
+    enigmaFunction(regularText, n);
    
     return 0;
     }
 
-void myFunction(char *myString, int n)
+void enigmaFunction(char *regularText, int n)
     {
     int i;
     int key = 1;
     for( i=0; i <= n ; i++ )
-    {    if(myString[i]>=89){
-        myString[i]= myString[i]-20;
+    {    if(regularText[i]>=89){
+        regularText[i]= regularText[i]-20;
     }
-       printf("%c", myString[i]+key );
+       printf("%c", regularText[i]+key );
       
     }
     printf("\n" );
