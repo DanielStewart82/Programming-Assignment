@@ -22,11 +22,13 @@ void enigmaFunction(char *regularText, int n)
     int i;
     int key = 1;
     for( i=0; i <= n ; i++ )
-    {    if(regularText[i]>=89){
-        regularText[i]= regularText[i]-20;
+    {    if(97<=regularText[i] && regularText[i]<=122){
+        regularText[i]= regularText[i]-32;
     }
-       printf("%c", regularText[i]+key );
       
-    }
+    
+      printf("%c", regularText[i]+key );
+      
+    
     printf("\n" );
 }
