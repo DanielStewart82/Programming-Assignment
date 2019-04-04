@@ -10,7 +10,7 @@ int main()
     
     int n;
     
-    n = (sizeof(regularText))-1;
+    n = (sizeof(regularText))/sizeof(regularText[0]);
      
     enigmaFunction(regularText, n);
    
