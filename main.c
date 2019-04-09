@@ -6,7 +6,7 @@ void enigmaFunction(char *regularText, int n);
 int main()
     {
     
-    char regularText[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char regularText[]= "ABCDEFGHIJKLMNO 235 PQRSTUVWXYZ abcdefghijklmnopqr 65 stuvwxyz";
     
     int n;
     
@@ -21,17 +21,14 @@ void enigmaFunction(char *regularText, int n)
     {
     
     int i;
-    int key = -5;
+    int key = 0;
     
         for( i=0; i <= (n-2) ; i++ )
-    {
-        if(97<=regularText[i] && regularText[i]<=122){
+    {        if(97<=regularText[i] && regularText[i]<=122){
              regularText[i]= regularText[i]-32;
     }
-       
-        }
-       
-     
+            if(65<=regularText[i] && regularText[i]<=90){
+                
                 regularText[i]= regularText[i]-65;
                 regularText[i]=(regularText[i]+key);
     
@@ -42,8 +39,9 @@ void enigmaFunction(char *regularText, int n)
     
                         regularText[i]=regularText[i]%(26);
                         regularText[i]=regularText[i]+65;
-                             
+                         }     
 
+    }
 
   
                             printf("%s\n", regularText);
