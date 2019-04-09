@@ -21,7 +21,7 @@ void enigmaFunction(char *regularText, int n)
     {
     
     int i;
-    int key = 0;
+    int key = 25;
     
         for( i=0; i <= (n-2) ; i++ )
     {        if(97<=regularText[i] && regularText[i]<=122){
