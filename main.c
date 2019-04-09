@@ -16,7 +16,7 @@ int main()
    
     return 0;
     }
-
+ 
 void enigmaFunction(char *regularText, int n)
     {
     int i;
@@ -28,7 +28,7 @@ void enigmaFunction(char *regularText, int n)
      
     regularText[i]= regularText[i]-65;
     
-    for( i=0; i <= (n-2) ; i++ ){
+    //for( i=0; i <= (n-2) ; i++ ){
     if(regularText[i]<=0)
     {regularText[i]=regularText[i]+26;}
     regularText[i]=(regularText[i]+key)%(26);
