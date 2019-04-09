@@ -20,15 +20,18 @@ int main()
 void enigmaFunction(char *regularText, int n)
     {
     int i;
-    int key = 1;
+    int key = 0;
     for( i=0; i <= n ; i++ )
     {    if(97<=regularText[i] && regularText[i]<=122){
         regularText[i]= regularText[i]-32;
+       
     }
       
-    
-      printf("%c", regularText[i]+key );
+    regularText[i]= regularText[i]-65;
+    regularText[i]=(regularText[i]+key)%(26);
+    regularText[i]=regularText[i]+65;
+    printf("%c", regularText[i] );
       
     
-    printf("\n" );
-}
+   // printf("\n" );
+}}
