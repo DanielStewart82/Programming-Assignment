@@ -18,7 +18,8 @@ int main()
 
     enigmaFunction(regularText, n);
     printf("%s\n", regularText);
-    decryptionFunction(decryptedText, n);
+    
+    decryptionFunction(decryptedText, o);
     printf("%s\n", decryptedText);
     return 0;
     }
@@ -48,25 +49,22 @@ void enigmaFunction(char *regularText, int n)
     
 void decryptionFunction(char *decryptedText, int o)
     {
-    int i;
-    int key = 2;
+    int j;
+    int key = 7;
     
-        for( i=0; i <= (o-2) ; i++ )
+        for( j=0; j <= (o-2) ; j++ )
         {
-            if(97<=decryptedText[i] && decryptedText[i]<=122){
-            decryptedText[i] = decryptedText[i]-32;
+            if(97<=decryptedText[j] && decryptedText[j]<=122){
+            decryptedText[j] = decryptedText[j]-32;
         }
-            if(65<=decryptedText[i] && decryptedText[i]<=90)
+            if(65<=decryptedText[j] && decryptedText[j]<=90)
             {                
-                decryptedText[i]= decryptedText[i]-65;
-                decryptedText[i]=(decryptedText[i]-key);
-    
-                decryptedText[i]=decryptedText[i]%(26);
-                if(decryptedText[i]<0)
-                {
-                     decryptedText[i]=decryptedText[i]+26;
-                }
-                decryptedText[i]=decryptedText[i]+65;
+                decryptedText[j]= decryptedText[j]-65;
+                decryptedText[j]=decryptedText[j]-key+26;
+                if(decryptedText[j]<0){decryptedText[j]=decryptedText[j]+26;}
+                decryptedText[j]=decryptedText[j]%(26);
+                
+                decryptedText[j]=decryptedText[j]+65;
             }     
             
        
