@@ -7,14 +7,19 @@ void decryptionFunction(char *decryptedText, int o);
 int main()
     {
     
-    char regularText[]= "Hello Ben, how are you today?";
-    
+    char regularText[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int n;
-    
     n = (sizeof(regularText))/sizeof(regularText[0]);
-     
+    
+    char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
+    int o;
+    o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
+    
+
     enigmaFunction(regularText, n);
     printf("%s\n", regularText);
+    decryptionFunction(decryptedText, n);
+    printf("%s\n", decryptedText);
     return 0;
     }
  
@@ -44,7 +49,7 @@ void enigmaFunction(char *regularText, int n)
 void decryptionFunction(char *decryptedText, int o)
     {
     int i;
-    int key = 23;
+    int key = 2;
     
         for( i=0; i <= (o-2) ; i++ )
         {
