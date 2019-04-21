@@ -46,8 +46,8 @@ int main()
  switch(task)
         {
           case 1:
-          
-              printf("Your hardcoded message you wish to encrypt with the rotation cipher is:\n");
+              printf("*****************************************************************************************************************\n");
+              printf("The hardcoded message you wish to encrypt with the rotation cipher is:\n");
               printf("%s\n", regularText);
               printf("Enter an integer between 0 and 25 that you wish to rotate the alphabet by:\n");
               scanf("%d", &encryptKey);
@@ -63,8 +63,8 @@ int main()
           break;
           
             case 2:
-            
-              printf("Your hardcoded message you wish to decrypt with the rotation cipher is:\n");
+              printf("*****************************************************************************************************************\n");
+              printf("The hardcoded message you wish to decrypt with the rotation cipher is:\n");
               printf("%s\n", decryptedText);
               printf("Enter an integer between 0 and 25 that you wish to rotate the alphabet by:\n");
               scanf("%d", &decryptKey);
@@ -80,8 +80,8 @@ int main()
           break;
           
           case 3:
-          
-              printf("Your hardcoded message you wish to encrypt with the substitution cipher is:\n");
+              printf("*****************************************************************************************************************\n");     
+              printf("The hardcoded message you wish to encrypt with the substitution cipher is:\n");
               printf("%s\n", messageString);
               printf("The hardcoded substitution you have entered is:%s\n", substitutionString); 
               printf("Your encrypted message is:\n");
@@ -94,8 +94,8 @@ int main()
           break;
             
             case 4:
-          
-              printf("Your hardcoded message you wish to decrypt with the substitution cipher is:\n");
+              printf("*****************************************************************************************************************\n");        
+              printf("The hardcoded message you wish to decrypt with the substitution cipher is:\n");
               printf("%s\n", encryptedMessage);
               printf("The hardcoded substitution you have entered is:%s\n", substitutionString); 
               printf("Your decrypted message is:\n");              
