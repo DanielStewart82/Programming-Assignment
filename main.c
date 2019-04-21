@@ -3,7 +3,8 @@
 
 void enigmaFunction(char *regularText, int n, int encryptKey);
 void decryptionFunction(char *decryptedText, int o, int decryptKey);
-
+void substitutionEncryption(char *messageString, char *substitutionString);
+void decrypt(char *encryptedMessage, char *substitutionString);
 int main()
     {
         int encryptKey;
@@ -29,12 +30,15 @@ int main()
     int n;
     n = (sizeof(regularText))/sizeof(regularText[0]);
     
-   char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
+    char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
     int o;
     o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
     
-
-   
+    char substitutionString[]="QWERTYUIOPASDFGHJKLZXCVBNM";
+    
+    char messageString[]= "PLEASE GET MILK AT THE SHOPS";
+    
+    char encryptedMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
    
     
     
@@ -74,7 +78,33 @@ int main()
               printf("End program.\n");
             
           break;
+          
+          case 3:
+          
+              printf("Your hardcoded message you wish to encrypt with the substitution cipher is:\n");
+              printf("%s\n", messageString);
+              printf("The hardcoded substitution you have entered is:%s\n", substitutionString); 
+              printf("Your encrypted message is:\n");
+          
+                                           
+              substitutionEncryption(messageString, substitutionString);    
+              printf("\n");
+              printf("End program.\n");
             
+          break;
+            
+            case 4:
+          
+              printf("Your hardcoded message you wish to decrypt with the substitution cipher is:\n");
+              printf("%s\n", encryptedMessage);
+              printf("The hardcoded substitution you have entered is:%s\n", substitutionString); 
+              printf("Your decrypted message is:\n");              
+              
+              decrypt(encryptedMessage, substitutionString);
+              printf("\n");
+              printf("End program.\n");
+            
+          break;
         }
     }
 
@@ -125,4 +155,50 @@ void decryptionFunction(char *decryptedText, int o, int decryptKey)
             }
           
 
+    }
+    
+void substitutionEncryption(char *messageString, char *substitutionString)
+    {
+        int i, n;
+        for(i=0; messageString[i]!= '\0' ; i++)
+        {
+            if(messageString[i]<= 90 && messageString[i]>=65)
+            {            
+             n = messageString[i]-65; 
+             printf("%c", substitutionString[n]);
+            }
+                else
+                {
+                printf("%c", messageString[i]);
+                }
+    
+    
+        }
+    }
+    
+    
+void decrypt(char *encryptedMessage, char *substitutionString)
+{
+    int i;
+    int z;
+    char decrypt;
+    for(i=0; encryptedMessage[i]!='\0';i++)
+    {
+        if(encryptedMessage[i]<=90  && encryptedMessage[i]>=65)
+        {
+
+            for(z=0; substitutionString[z]!=encryptedMessage[i];z++)
+            {
+                decrypt = z;
+            }
+            decrypt = z + 65;
+            printf("%c", decrypt);
+        }
+        else
+        {
+            printf("%c", encryptedMessage[i]);
+        }
+    }
+    
+    
 }
