@@ -7,7 +7,7 @@ void decryptionFunction(char *decryptedText, int o);
 int main()
     {
     
-    char regularText[]= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char regularText[]= "MON MOTHMA: THE DATA BROUGHT TO US BY THE BOTHAN SPIES PINPOINTS THE EXACT LOCATION OF THE EMPEROR'S NEW BATTLE STATION. WE ALSO KNOW THAT THE WEAPON SYSTEMS OF THIS DEATH STAR ARE NOT YET OPERATIONAL. WITH THE IMPERIAL FLEET SPREAD THROUGHOUT THE GALAXY IN A VAIN EFFORT TO ENGAGE US, IT ISRELATIVELY UNPROTECTED. BUT MOST IMPORTANT OF ALL, WE'VE LEARNED THAT THE EMPEROR HIMSELF IS PERSONALLY OVERSEEING THE FINAL STAGES OF THE CONSTRUCTION OF THIS DEATH STAR. MANY BOTHANS DIED TO BRING US THIS INFORMATION.";
     int n;
     n = (sizeof(regularText))/sizeof(regularText[0]);
     
@@ -27,7 +27,7 @@ int main()
 void enigmaFunction(char *regularText, int n)
     {
     int i;
-    int key = 0;
+    int key = 7;
     
         for( i=0; i <= (n-2) ; i++ )
         {
