@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void enigmaFunction(char *regularText, int n, int encryptKey);
-void decryptionFunction(char *decryptedText, int o);
+void decryptionFunction(char *decryptedText, int o, int decryptKey);
 
 int main()
     {
@@ -61,17 +61,16 @@ int main()
             case 2:
             
               printf("Your hardcoded message you wish to decrypt with the rotation cipher is:\n");
-              printf("%s\n", regularText);
+              printf("%s\n", decryptedText);
               printf("Enter an integer between 0 and 25 that you wish to rotate the alphabet by:\n");
               scanf("%d", &decryptKey);
               printf("You have chosen to rotate the alphabet by a value of:%d\n", decryptKey);
               printf("Your decrypted message is:\n");
           
-              decryptionFunction(decryptedText, o);
+              decryptionFunction(decryptedText, o, decryptKey);
               printf("%s\n", decryptedText);
                  
                  
-              printf("%s\n", regularText);
               printf("End program.\n");
             
           break;
@@ -82,7 +81,7 @@ int main()
  void enigmaFunction(char *regularText, int n, int encryptKey)
             {
                 int i;
-                //int encryptKey;
+                
     
                      for( i=0; i <= (n-2) ; i++ )
                      {
@@ -102,10 +101,10 @@ int main()
 
             }
     
-void decryptionFunction(char *decryptedText, int o)
+void decryptionFunction(char *decryptedText, int o, int decryptKey)
     {
     int j;
-    int decryptKey;
+    
     
         for( j=0; j <= (o-2) ; j++ )
         {
