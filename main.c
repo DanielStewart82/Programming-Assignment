@@ -149,7 +149,7 @@ int main()
               printf("Your decrypted message is:\n");
               printf("\n");
               
-              decrypt(encryptedMessage, substitutionString);
+              decrypt(encryptedMessage, substitutionString);    //This is the function call.
               
               printf("\n");
               printf("\n");
@@ -162,75 +162,62 @@ int main()
               break;
         }
     }
-
- void enigmaFunction(char *regularText, int n, int encryptKey)
-            {
-                int i;
-                
     
-                     for( i=0; i <= (n-2) ; i++ )
-                     {
-                        if(97<=regularText[i] && regularText[i]<=122)
-                         {
-                             regularText[i] = regularText[i]-32;
-                         }
-                             if(65<=regularText[i] && regularText[i]<=90)
-                             {                
-                              regularText[i]= regularText[i]-65;
-                              regularText[i]=(regularText[i]+encryptKey);
-                              regularText[i]=regularText[i]%(26);
-                              regularText[i]=regularText[i]+65;
-                             }     
-    
-                    }
-
-            }
+void enigmaFunction(char *regularText, int n, int encryptKey)
+{
+    int i;
+    for( i=0; i <= (n-2) ; i++ )
+    {
+        if(97<=regularText[i] && regularText[i]<=122)
+        {
+            regularText[i] = regularText[i]-32;
+        }
+        if(65<=regularText[i] && regularText[i]<=90)
+        {                
+            regularText[i]= regularText[i]-65;
+            regularText[i]=(regularText[i]+encryptKey);
+            regularText[i]=regularText[i]%(26);
+            regularText[i]=regularText[i]+65;
+        }
+     }
+}
     
 void decryptionFunction(char *decryptedText, int o, int decryptKey)
+{
+    int j;   
+    for( j=0; j <= (o-2) ; j++ )
     {
-    int j;
-    
-    
-        for( j=0; j <= (o-2) ; j++ )
+        if(97<=decryptedText[j] && decryptedText[j]<=122)
         {
-            if(97<=decryptedText[j] && decryptedText[j]<=122){
             decryptedText[j] = decryptedText[j]-32;
         }
-            if(65<=decryptedText[j] && decryptedText[j]<=90)
-            {                
-                decryptedText[j]= decryptedText[j]-65;
-                decryptedText[j]=decryptedText[j]-decryptKey+26;
-                if(decryptedText[j]<0){decryptedText[j]=decryptedText[j]+26;}
-                decryptedText[j]=decryptedText[j]%(26);
-                
-                decryptedText[j]=decryptedText[j]+65;
-            }     
-            
-       
-            }
-          
-
+        if(65<=decryptedText[j] && decryptedText[j]<=90)
+        {                
+            decryptedText[j]= decryptedText[j]-65;
+            decryptedText[j]=decryptedText[j]-decryptKey+26;
+            if(decryptedText[j]<0){decryptedText[j]=decryptedText[j]+26;}
+            decryptedText[j]=decryptedText[j]%(26);
+            decryptedText[j]=decryptedText[j]+65;
+        }     
     }
+}
     
 void substitutionEncryption(char *messageString, char *substitutionString)
+{
+    int i, n;
+    for(i=0; messageString[i]!= '\0' ; i++)
     {
-        int i, n;
-        for(i=0; messageString[i]!= '\0' ; i++)
-        {
-            if(messageString[i]<= 90 && messageString[i]>=65)
-            {            
-             n = messageString[i]-65; 
-             printf("%c", substitutionString[n]);
-            }
-                else
-                {
-                printf("%c", messageString[i]);
-                }
-    
-    
+        if(messageString[i]<= 90 && messageString[i]>=65)
+        {            
+            n = messageString[i]-65; 
+            printf("%c", substitutionString[n]);
         }
+        else
+        {
+            printf("%c", messageString[i]);
+        }    
     }
-    
+}
     
 void decrypt(char *encryptedMessage, char *substitutionString)
 {
@@ -241,7 +228,6 @@ void decrypt(char *encryptedMessage, char *substitutionString)
     {
         if(encryptedMessage[i]<=90  && encryptedMessage[i]>=65)
         {
-
             for(z=0; substitutionString[z]!=encryptedMessage[i];z++)
             {
                 decrypt = z;
@@ -254,6 +240,4 @@ void decrypt(char *encryptedMessage, char *substitutionString)
             printf("%c", encryptedMessage[i]);
         }
     }
-    
-    
-}
+    }
