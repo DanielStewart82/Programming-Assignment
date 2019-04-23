@@ -5,15 +5,18 @@ who is repeating the course.*/
 
 #include <stdio.h>
 
+
 /*This program utilises four functions to operate.
 Functions must be declared at the beginning of the program.
 The function definitions are placed at the end of the program.  
 Directly underneath this comment are the four function declarations.*/
 
+
 void enigmaFunction(char *regularText, int n, int encryptKey);  //Encryption with rotation cipher.
 void decryptionFunction(char *decryptedText, int o, int decryptKey); //Decryption with rotation cipher.
 void substitutionEncryption(char *messageString, char *substitutionString);//Encryption with substitution cipher.
 void decrypt(char *encryptedMessage, char *substitutionString); //Decryption with substitution cipher.
+
 
 int main()
     {
@@ -38,13 +41,15 @@ int main()
         printf("\n");
         printf("Please make your selection now by entering the task number you wish to select then press enter.\n");
         scanf("%d", &task);
+        
        
-   /*Between line 46 and line 58 are the strings that the program reads from.
-   You will need to enter your messages for   The program does not currently support user input from stdin.  
-   All encryption/decryption needs to be hardcoded. */
+/*Between line 46 and line 58 are the strings that the program reads from.
+  You will need to enter your messages for   The program does not currently support user input from stdin.  
+  All encryption/decryption needs to be hardcoded. */
+ 
   
     char regularText[]= "MON MOTHMA: THE DATA BROUGHT TO US BY THE BOTHAN SPIES PINPOINTS THE EXACT LOCATION OF THE EMPEROR'S NEW BATTLE STATION. WE ALSO KNOW THAT THE WEAPON SYSTEMS OF THIS DEATH STAR ARE NOT YET OPERATIONAL. WITH THE IMPERIAL FLEET SPREAD THROUGHOUT THE GALAXY IN A VAIN EFFORT TO ENGAGE US, IT ISRELATIVELY UNPROTECTED. BUT MOST IMPORTANT OF ALL, WE'VE LEARNED THAT THE EMPEROR HIMSELF IS PERSONALLY OVERSEEING THE FINAL STAGES OF THE CONSTRUCTION OF THIS DEATH STAR. MANY BOTHANS DIED TO BRING US THIS INFORMATION.";
-    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above.
+    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
     int n;
     n = (sizeof(regularText))/sizeof(regularText[0]);  //The purpose of this line of code is to allow the program to 
                                                        //determine the number of elements in the string.
@@ -52,11 +57,11 @@ int main()
                                                        //to stop processing the data at the inverted commas.
     
     char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
-    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above.
+    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
     int o;
     o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
     
-    char substitutionString[]="QWERTYUIOPASDFGHJKLZXCVBNM";  //This is where the substitution alphabet needs to be entered.
+    char substitutionString[]="QWERTYUIOPASDFGHJKLZXCVBNM";  //This is where the substitution alphabet needs to be entered.  Decryption and encryption both rely on the same string for the substitution alphabet.
     
     char messageString[]= "PLEASE GET MILK AT THE SHOPS";    //The message for the substitution encryption needs to be entered here.
     
@@ -157,13 +162,13 @@ int main()
             
           break;
           
-              default:  //If user enters something that is not an integer between 1 & 4 the program will switch to default and end.
+              default:  //If the user enters something that is not an integer between 1 & 4 the program will switch to default and end.
               printf("Invalid selection.  %d not recognised.\n", task);
               break;
         }
-    }
+    }   //Effectively the program ends here.  From this point on are the function declarations.
     
-void enigmaFunction(char *regularText, int n, int encryptKey)
+void enigmaFunction(char *regularText, int n, int encryptKey)  //This is the function for rotation cipher encryption.
 {
     int i;
     for( i=0; i <= (n-2) ; i++ )
@@ -182,7 +187,7 @@ void enigmaFunction(char *regularText, int n, int encryptKey)
      }
 }
     
-void decryptionFunction(char *decryptedText, int o, int decryptKey)
+void decryptionFunction(char *decryptedText, int o, int decryptKey)     //This is the function for rotation cipher decryption.
 {
     int j;   
     for( j=0; j <= (o-2) ; j++ )
@@ -202,42 +207,41 @@ void decryptionFunction(char *decryptedText, int o, int decryptKey)
     }
 }
     
-void substitutionEncryption(char *messageString, char *substitutionString)
+void substitutionEncryption(char *messageString, char *substitutionString)      //This is the function for substitution cipher encryption.
 {
-    int i, n;
-    for(i=0; messageString[i]!= '\0' ; i++)
+    int i, n;                                                                   //integers i & n are local variables inside this function.
+    for(i=0; messageString[i]!= '\0' ; i++)                                     //messageString[i]!= '\0'  This line will ensure the program stops reading the string when it sees inverted commas.
     {
-        if(messageString[i]<= 90 && messageString[i]>=65)
+        if(messageString[i]<= 90 && messageString[i]>=65)                       //Program will only encrypt capital letters with ASCII value between [65,90].
         {            
-            n = messageString[i]-65; 
-            printf("%c", substitutionString[n]);
+            n = messageString[i]-65;                                            //Program will read the value of the message letter and subtract 65.
+            printf("%c", substitutionString[n]);                                //The value of n is now between 0 & 25.  Program will print whichever letter is in the position between 0 & 25 of the substitution string.
         }
-        else
+        else                                                                    //If the character in the string to be deciphered is not a capital letter it will be ignored.
         {
-            printf("%c", messageString[i]);
+            printf("%c", messageString[i]);                                     //White space and other characters will be printed to screen in their normal state.
         }    
     }
 }
     
-void decrypt(char *encryptedMessage, char *substitutionString)
+void decrypt(char *encryptedMessage, char *substitutionString)                  //This is the function for substitution cipher decryption.
 {
-    int i;
-    int z;
+    int i, z;                                                                   //Local variables.
     char decrypt;
-    for(i=0; encryptedMessage[i]!='\0';i++)
+    for(i=0; encryptedMessage[i]!='\0';i++)                                     //messageString[i]!= '\0'  This line will ensure the program stops reading the string when it sees inverted commas.
     {
-        if(encryptedMessage[i]<=90  && encryptedMessage[i]>=65)
+        if(encryptedMessage[i]<=90  && encryptedMessage[i]>=65)                 //Program will only decrypt capital letters with ASCII value between [65,90].
         {
-            for(z=0; substitutionString[z]!=encryptedMessage[i];z++)
-            {
-                decrypt = z;
+            for(z=0; substitutionString[z]!=encryptedMessage[i];z++)            //I've introduced another for loop here.  This one will cycle through the substitution 
+            {                                                                   //string and check the values of the substitution string to the message string.  
+                decrypt = z;                                                    //If it finds a match it will add 65 to the value and print the new character to the screen.
             }
             decrypt = z + 65;
             printf("%c", decrypt);
         }
         else
         {
-            printf("%c", encryptedMessage[i]);
+            printf("%c", encryptedMessage[i]);                                  //If the character in the string to be deciphered is not a capital letter it will be ignored.
         }
     }
-    }
+}
