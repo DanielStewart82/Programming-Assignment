@@ -39,26 +39,37 @@ int main()
         printf("Please make your selection now by entering the task number you wish to select then press enter.\n");
         scanf("%d", &task);
        
-   /*  Between line 45 and line 57 is where the text that users wish to encrypt or decrypt
-   needs to be inputed.  
-        
-        */
+   /*Between line 46 and line 58 are the strings that the program reads from.
+   You will need to enter your messages for   The program does not currently support user input from stdin.  
+   All encryption/decryption needs to be hardcoded. */
+  
     char regularText[]= "MON MOTHMA: THE DATA BROUGHT TO US BY THE BOTHAN SPIES PINPOINTS THE EXACT LOCATION OF THE EMPEROR'S NEW BATTLE STATION. WE ALSO KNOW THAT THE WEAPON SYSTEMS OF THIS DEATH STAR ARE NOT YET OPERATIONAL. WITH THE IMPERIAL FLEET SPREAD THROUGHOUT THE GALAXY IN A VAIN EFFORT TO ENGAGE US, IT ISRELATIVELY UNPROTECTED. BUT MOST IMPORTANT OF ALL, WE'VE LEARNED THAT THE EMPEROR HIMSELF IS PERSONALLY OVERSEEING THE FINAL STAGES OF THE CONSTRUCTION OF THIS DEATH STAR. MANY BOTHANS DIED TO BRING US THIS INFORMATION.";
+    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above.
     int n;
-    n = (sizeof(regularText))/sizeof(regularText[0]);
+    n = (sizeof(regularText))/sizeof(regularText[0]);  //The purpose of this line of code is to allow the program to 
+                                                       //determine the number of elements in the string.
+                                                       //n will count the number of elements and tell the program
+                                                       //to stop processing the data at the inverted commas.
     
     char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
+    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above.
     int o;
     o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
     
-    char substitutionString[]="QWERTYUIOPASDFGHJKLZXCVBNM";
+    char substitutionString[]="QWERTYUIOPASDFGHJKLZXCVBNM";  //This is where the substitution alphabet needs to be entered.
     
-    char messageString[]= "PLEASE GET MILK AT THE SHOPS";
+    char messageString[]= "PLEASE GET MILK AT THE SHOPS";    //The message for the substitution encryption needs to be entered here.
     
-    char encryptedMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
+    char encryptedMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";  //The message for the substitution decryption needs to be entered here.
    
     
-    
+/*The program uses a simple menu system to select between tasks.
+  The system uses a switch statement.  The user enters an integer
+  between 1 & 4.  The value is stored in int task.
+  The program will read the integer and direct the user to 
+  their desired function.
+  After the specific function has been run a break
+  statement is used to end the program.*/
     
  switch(task)
         {
@@ -75,8 +86,7 @@ int main()
               printf("Your encrypted message is:\n");
               printf("\n");
           
-              enigmaFunction(regularText, n, encryptKey);
-                 
+              enigmaFunction(regularText, n, encryptKey);  //This is the function call.
                  
               printf("%s\n", regularText);
               printf("\n");
@@ -99,7 +109,8 @@ int main()
               printf("Your decrypted message is:\n");
               printf("\n");
           
-              decryptionFunction(decryptedText, o, decryptKey);
+              decryptionFunction(decryptedText, o, decryptKey);  //This is the function call.
+              
               printf("%s\n", decryptedText);
               printf("\n");
                  
@@ -118,9 +129,9 @@ int main()
               printf("\n");
               printf("Your encrypted message is:\n");
               printf("\n");
-          
-                                           
-              substitutionEncryption(messageString, substitutionString);    
+                                                    
+              substitutionEncryption(messageString, substitutionString);    //This is the function call.
+              
               printf("\n");
               printf("\n");
               printf("End program.\n");
@@ -139,13 +150,14 @@ int main()
               printf("\n");
               
               decrypt(encryptedMessage, substitutionString);
+              
               printf("\n");
               printf("\n");
               printf("End program.\n");
             
           break;
           
-              default:
+              default:  //If user enters something that is not an integer between 1 & 4 the program will switch to default and end.
               printf("Invalid selection.  %d not recognised.\n", task);
               break;
         }
