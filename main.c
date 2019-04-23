@@ -237,7 +237,7 @@ void decrypt(char *encryptedMessage, char *substitutionString)                  
                 decrypt = z;                                                    //If it finds a match it will add 65 to the value and print the new character to the screen.
             }
             decrypt = z + 65;
-            printf("%c", decrypt);
+            printf("%c", decrypt);                                              //Prints the decrypted character to the screen.
         }
         else
         {
