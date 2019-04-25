@@ -43,7 +43,7 @@ int main()
         scanf("%d", &task);
         
        
-/*Between line 51 and line 69 are the strings that the program reads from.
+/*Between line 52 and line 70 are the strings that the program reads from.
   The program does not currently support user input from stdin.  
   All encryption/decryption needs to be hardcoded.
   Prior to running the program the user will need to enter the data manually and then compile.*/
