@@ -20,12 +20,12 @@ void decrypt(char *encryptedMessage, char *substitutionString); //Decryption wit
 
 int main()
     {
-        int encryptKey;  //users will be prompted to input a number between 0 & 25 to rotate the alphabet.
-        int decryptKey;  //users will be prompted to input a number between 0 & 25 to un-rotate the alphabet.
-        int task;        //used for task selection in the menu.  User will input this value.
+        int encryptKey;  //Users will be prompted to input a number between 0 & 25 to rotate the alphabet.
+        int decryptKey;  //Users will be prompted to input a number between 0 & 25 to un-rotate the alphabet.
+        int task;        //Used for task selection in the menu.  User will input this value.
         printf("*****************************************************************************************************************\n");
-        printf("Welcome to the ENGG1003 Programming Assignment.\n");
-        printf("This program was written by Daniel Stewart.  Student Number: c3298707\n");
+        printf("Welcome to the ENGG1003 Programming Assignment One of Semester One 2019.\n");
+        printf("This program was written by me Daniel Stewart.  Student Number: c3298707\n");
         printf("All work is the work of myself and the program was completed on 28th April 2019.\n");
         printf("\n");
         printf("\n");
@@ -43,9 +43,10 @@ int main()
         scanf("%d", &task);
         
        
-/*Between line 46 and line 58 are the strings that the program reads from.
-  You will need to enter your messages for   The program does not currently support user input from stdin.  
-  All encryption/decryption needs to be hardcoded. */
+/*Between line 51 and line 69 are the strings that the program reads from.
+  The program does not currently support user input from stdin.  
+  All encryption/decryption needs to be hardcoded.
+  Prior to running the program the user will need to enter the data manually and then compile.*/
  
   
     char regularText[]= "MON MOTHMA: THE DATA BROUGHT TO US BY THE BOTHAN SPIES PINPOINTS THE EXACT LOCATION OF THE EMPEROR'S NEW BATTLE STATION. WE ALSO KNOW THAT THE WEAPON SYSTEMS OF THIS DEATH STAR ARE NOT YET OPERATIONAL. WITH THE IMPERIAL FLEET SPREAD THROUGHOUT THE GALAXY IN A VAIN EFFORT TO ENGAGE US, IT ISRELATIVELY UNPROTECTED. BUT MOST IMPORTANT OF ALL, WE'VE LEARNED THAT THE EMPEROR HIMSELF IS PERSONALLY OVERSEEING THE FINAL STAGES OF THE CONSTRUCTION OF THIS DEATH STAR. MANY BOTHANS DIED TO BRING US THIS INFORMATION.";
@@ -55,9 +56,10 @@ int main()
                                                        //determine the number of elements in the string.
                                                        //n will count the number of elements and tell the program
                                                        //to stop processing the data at the inverted commas.
+                                                       
     
-    char decryptedText[]= "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
-    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
+    char decryptedText[]= "JLK JLQEJX: QEB AXQX YOLRDEQ QL RP YV QEB YLQEXK PMFBP MFKMLFKQP QEB BUXZQ ILZXQFLK LC QEB BJMBOLO'P KBT YXQQIB PQXQFLK. TB XIPL HKLT QEXQ QEB TBXMLK PVPQBJP LC QEFP ABXQE PQXO XOB KLQ VBQ LMBOXQFLKXI. TFQE QEB FJMBOFXI CIBBQ PMOBXA QEOLRDELRQ QEB DXIXUV FK X SXFK BCCLOQ QL BKDXDB RP, FQ FPOBIXQFSBIV RKMOLQBZQBA. YRQ JLPQ FJMLOQXKQ LC XII, TB'SB IBXOKBA QEXQ QEB BJMBOLO EFJPBIC FP MBOPLKXIIV LSBOPBBFKD QEB CFKXI PQXDBP LC QEB ZLKPQORZQFLK LC QEFP ABXQE PQXO. JXKV YLQEXKP AFBA QL YOFKD RP QEFP FKCLOJXQFLK";    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
+    //Text to be decrypted with the rotation cipher needs to be entered in the string directly above this line.
     int o;
     o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
     
@@ -68,15 +70,15 @@ int main()
     char encryptedMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";  //The message for the substitution decryption needs to be entered here.
    
     
-/*The program uses a simple menu system to select between tasks.
-  The system uses a switch statement.  The user enters an integer
-  between 1 & 4.  The value is stored in int task.
-  The program will read the integer and direct the user to 
-  their desired function.
-  After the specific function has been run a break
-  statement is used to end the program.*/
+    /*The program uses a simple menu system to select between tasks.
+     The system uses a switch statement.  The user enters an integer
+     between 1 & 4.  The value is stored in int task.
+     The program will read the integer and direct the user to 
+     their desired function.
+     After the specific function has been run a break
+     statement is used to end the program.*/
     
- switch(task)
+    switch(task)
         {
           case 1:
               printf("*****************************************************************************************************************\n");
@@ -168,40 +170,39 @@ int main()
         }
     }   //Effectively the program ends here.  From this point on are the function declarations.
     
-void enigmaFunction(char *regularText, int n, int encryptKey)  //This is the function for rotation cipher encryption.
+void enigmaFunction(char *regularText, int n, int encryptKey)   //This is the function for rotation cipher encryption.
 {
     int i;
     for( i=0; i <= (n-2) ; i++ )
     {
-        if(97<=regularText[i] && regularText[i]<=122)
+        if(97<=regularText[i] && regularText[i]<=122)           //This function works by taking lower case letters and converting them to uppercase.
         {
-            regularText[i] = regularText[i]-32;
+            regularText[i] = regularText[i]-32;                
         }
         if(65<=regularText[i] && regularText[i]<=90)
-        {                
-            regularText[i]= regularText[i]-65;
-            regularText[i]=(regularText[i]+encryptKey);
-            regularText[i]=regularText[i]%(26);
-            regularText[i]=regularText[i]+65;
-        }
+        {                                                       //Once the letter is upper case 65 is subracted from its value which will 
+            regularText[i]= regularText[i]-65;                  //give it a new value of between 0 & 25.
+            regularText[i]=(regularText[i]+encryptKey);         //The key the user has chosen is added to the value.
+            regularText[i]=regularText[i]%(26);                 //We take the modulus of this which will return the remainder of the division.  This is how the alphabet is able to rotate from Z to A without ending up with funky symbols.
+            regularText[i]=regularText[i]+65;                   //Adding 65 to the modulus will give us a capital letter.
+        }                           
      }
-}
+}                                                               //The for loop provides a way of doing this for every letter in the string.  White space and other characters are left alone.
     
 void decryptionFunction(char *decryptedText, int o, int decryptKey)     //This is the function for rotation cipher decryption.
-{
+{                                                                       //It works in a very similar way as the encryption cipher but has a few small differences.
     int j;   
     for( j=0; j <= (o-2) ; j++ )
     {
-        if(97<=decryptedText[j] && decryptedText[j]<=122)
+        if(97<=decryptedText[j] && decryptedText[j]<=122)               
         {
             decryptedText[j] = decryptedText[j]-32;
         }
         if(65<=decryptedText[j] && decryptedText[j]<=90)
         {                
-            decryptedText[j]= decryptedText[j]-65;
-            decryptedText[j]=decryptedText[j]-decryptKey+26;
-            if(decryptedText[j]<0){decryptedText[j]=decryptedText[j]+26;}
-            decryptedText[j]=decryptedText[j]%(26);
+            decryptedText[j]= decryptedText[j]-65;                      //It still subtracts the value of 65.  
+            decryptedText[j]=decryptedText[j]-decryptKey+26;            //But at this point we subtract the vaue of the decrypt key and then add 26 so 
+            decryptedText[j]=decryptedText[j]%(26);                     //that the alphabet will rotate and that we don't end up with funky characters.
             decryptedText[j]=decryptedText[j]+65;
         }     
     }
@@ -211,7 +212,7 @@ void substitutionEncryption(char *messageString, char *substitutionString)      
 {
     int i, n;                                                                   //integers i & n are local variables inside this function.
     for(i=0; messageString[i]!= '\0' ; i++)                                     //messageString[i]!= '\0'  This line will ensure the program stops reading the string when it sees inverted commas.
-    {
+    {                                                                           //In the first two functions I used sizeof to determine the end of the string.  In this function and the next I used this !=\0  (not equal to NULL).
         if(messageString[i]<= 90 && messageString[i]>=65)                       //Program will only encrypt capital letters with ASCII value between [65,90].
         {            
             n = messageString[i]-65;                                            //Program will read the value of the message letter and subtract 65.
