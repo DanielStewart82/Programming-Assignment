@@ -1,6 +1,6 @@
 /*Welcome to the ENGG1003 Programming Assignment One for Semester 1 of 2019. 
 This guide and the following notes are intended to be read and understood by a student 
-who is repeating the course.*/
+who is repeating the course.  All work has been completed by Daniel Stewart.*/
 
 
 #include <stdio.h>
