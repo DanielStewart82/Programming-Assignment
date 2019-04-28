@@ -49,7 +49,7 @@ int main()
   Prior to running the program the user will need to enter the data manually and then compile.*/
  
   
-    char regularText[]= "MON MOTHMA: THE DATA BROUGHT TO US BY THE BOTHAN SPIES PINPOINTS THE EXACT LOCATION OF THE EMPEROR'S NEW BATTLE STATION. WE ALSO KNOW THAT THE WEAPON SYSTEMS OF THIS DEATH STAR ARE NOT YET OPERATIONAL. WITH THE IMPERIAL FLEET SPREAD THROUGHOUT THE GALAXY IN A VAIN EFFORT TO ENGAGE US, IT ISRELATIVELY UNPROTECTED. BUT MOST IMPORTANT OF ALL, WE'VE LEARNED THAT THE EMPEROR HIMSELF IS PERSONALLY OVERSEEING THE FINAL STAGES OF THE CONSTRUCTION OF THIS DEATH STAR. MANY BOTHANS DIED TO BRING US THIS INFORMATION.";
+    char regularText[]= "ENTER TEXT TO BE ENCRYPTED WITH ROTATION CIPHER HERE";
     //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
     int n;
     n = (sizeof(regularText))/sizeof(regularText[0]);  //The purpose of this line of code is to allow the program to 
@@ -58,7 +58,7 @@ int main()
                                                        //to stop processing the data at the inverted commas.
                                                        
     
-    char decryptedText[]= "JLK JLQEJX: QEB AXQX YOLRDEQ QL RP YV QEB YLQEXK PMFBP MFKMLFKQP QEB BUXZQ ILZXQFLK LC QEB BJMBOLO'P KBT YXQQIB PQXQFLK. TB XIPL HKLT QEXQ QEB TBXMLK PVPQBJP LC QEFP ABXQE PQXO XOB KLQ VBQ LMBOXQFLKXI. TFQE QEB FJMBOFXI CIBBQ PMOBXA QEOLRDELRQ QEB DXIXUV FK X SXFK BCCLOQ QL BKDXDB RP, FQ FPOBIXQFSBIV RKMOLQBZQBA. YRQ JLPQ FJMLOQXKQ LC XII, TB'SB IBXOKBA QEXQ QEB BJMBOLO EFJPBIC FP MBOPLKXIIV LSBOPBBFKD QEB CFKXI PQXDBP LC QEB ZLKPQORZQFLK LC QEFP ABXQE PQXO. JXKV YLQEXKP AFBA QL YOFKD RP QEFP FKCLOJXQFLK";    //Text to be encrypted with the rotation cipher needs to be entered in the string directly above this line.
+    char decryptedText[]= "ENTER TEXT TO BE DECRYPTED WITH ROTATION CIPHER HERE";    
     //Text to be decrypted with the rotation cipher needs to be entered in the string directly above this line.
     int o;
     o = (sizeof(decryptedText))/sizeof(decryptedText[0]);
@@ -75,7 +75,7 @@ int main()
      between 1 & 4.  The value is stored in int task.
      The program will read the integer and direct the user to 
      their desired function.
-     After the specific function has been run a break
+     After the specific function has run a break
      statement is used to end the program.*/
     
     switch(task)
@@ -201,7 +201,7 @@ void decryptionFunction(char *decryptedText, int o, int decryptKey)     //This i
         if(65<=decryptedText[j] && decryptedText[j]<=90)
         {                
             decryptedText[j]= decryptedText[j]-65;                      //It still subtracts the value of 65.  
-            decryptedText[j]=decryptedText[j]-decryptKey+26;            //But at this point we subtract the vaue of the decrypt key and then add 26 so 
+            decryptedText[j]=decryptedText[j]-decryptKey+26;            //But at this point we subtract the value of the decrypt key and then add 26 so 
             decryptedText[j]=decryptedText[j]%(26);                     //that the alphabet will rotate and that we don't end up with funky characters.
             decryptedText[j]=decryptedText[j]+65;
         }     
@@ -210,7 +210,7 @@ void decryptionFunction(char *decryptedText, int o, int decryptKey)     //This i
     
 void substitutionEncryption(char *messageString, char *substitutionString)      //This is the function for substitution cipher encryption.
 {
-    int i, n;                                                                   //integers i & n are local variables inside this function.
+    int i, n;                                                                   //Integers i & n are local variables inside this function.
     for(i=0; messageString[i]!= '\0' ; i++)                                     //messageString[i]!= '\0'  This line will ensure the program stops reading the string when it sees inverted commas.
     {                                                                           //In the first two functions I used sizeof to determine the end of the string.  In this function and the next I used this !=\0  (not equal to NULL).
         if(messageString[i]<= 90 && messageString[i]>=65)                       //Program will only encrypt capital letters with ASCII value between [65,90].
